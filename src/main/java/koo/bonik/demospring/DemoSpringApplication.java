@@ -42,6 +42,16 @@ public class DemoSpringApplication {
 
             WebClient webClient = webClientBuild.baseUrl("https://api.github.com").build();
 
+//            Mono<String[]> stringMono = webClient.get().uri("https://cafecostes.com/practice/getMenu")
+//                    .retrieve()
+//                    .bodyToMono(String[].class);
+//
+//            stringMono.subscribe(sm -> {
+//               System.out.println(sm);
+//            });
+
+//            System.out.println(stringMono);
+
             // 비동기적으로 받으려면 웹클라이언트 쓰는게 좋음
             // Mono 를 이용하여 받는 방법 - 다 받으면 출력
             Mono<GithubRepository[]> reposMono = webClient.get().uri("/users/Koobonik/repos")
